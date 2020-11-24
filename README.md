@@ -15,6 +15,7 @@ sudo apt-get install -y vim htop tree git curl
 `curl`  Отправка Http-запросов
 
 <center>
+  
 Утилита  | Назначение
 ------------- | -------------
 `vim`  | Текстовый редактор
@@ -22,4 +23,5 @@ sudo apt-get install -y vim htop tree git curl
 `tree`  | Вывод каталогов в удобном формате
 `git`  | Работа с [GitHub](https://github.com/)
 `curl`  | Отправка Http-запросов
+  
 </center>
