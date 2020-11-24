@@ -23,23 +23,6 @@ sudo apt-get install -y vim htop tree git curl zsh tmux nginx python3.8
 `nginx`  | Веб-сервер
 `python3.8`  | Python версии 3.8.x
 
-Скачиваем и устанавливаем [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) (Конфигурация ZSH). Делаем его оболочкой по умолчанию.
-```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sudo chsh -s $(which zsh)
-```
-Добавляем шорткаты для удобный и продуктивной работы с терминалом
-```
-vim ~/.zshrc
-    alias cls='clear'
-    alias start_django='python3 manage.py runserver 0.0.0.0:8000'
-    alias sd='start_django'
-    alias activate_venv='source venv/bin/activate'
-```
-Перезапускаем ZSH-клиент
-```
-. ~/.zshrc
-```
 ## Добавляем нового пользователя. Настраиваем доступ к серверу.
 1. Создаём пользователя `www` --> Придумываем пароль --> Данные заполнять необязательно (Full Name, Room Number, ..., other).
 2. Добавляем пользователя `www` в группу `sudo`, чтобы получить права администратора.
@@ -69,6 +52,23 @@ sudo vim /etc/ssh/sshd_config
 sudo service ssh restart
 ```
 
-
+## Настраиваем ZSH и устанавливаем удобную оболочку
+Скачиваем и устанавливаем [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) (Конфигурация ZSH). Делаем его оболочкой по умолчанию.
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sudo chsh -s $(which zsh)
+```
+Добавляем шорткаты для удобный и продуктивной работы с терминалом
+```
+vim ~/.zshrc
+    alias cls='clear'
+    alias start_django='python3 manage.py runserver 0.0.0.0:8000'
+    alias sd='start_django'
+    alias activate_venv='source venv/bin/activate'
+```
+Перезапускаем ZSH-клиент
+```
+. ~/.zshrc
+```
 
 
