@@ -14,7 +14,6 @@ sudo apt-get install -y vim htop tree git curl
 `git`   Работа с [GitHub](https://github.com/)\
 `curl`  Отправка Http-запросов
 
-  | 
 ------------- | -------------
 Content Cell  | Content Cell
 Content Cell  | Content Cell
