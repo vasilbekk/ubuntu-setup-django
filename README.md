@@ -22,7 +22,7 @@ sudo apt-get install -y vim htop tree git curl zsh tmux nginx
 `tmux`  | Мультиплексор, несколько терминалов в одном окне, также есть встроенная альтернатива screen
 `nginx`  | Веб-сервер
 
-Скачиваем и устанавливаем [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh). Делаем его оболочкой по умолчанию.
+Скачиваем и устанавливаем [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)(Конфигурация ZSH). Делаем его оболочкой по умолчанию.
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo chsh -s $(which zsh)
