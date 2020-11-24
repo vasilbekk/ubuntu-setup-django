@@ -204,4 +204,8 @@ sudo vim /etc/nginx/sites-enabled/default
 ```
 sudo service nginx restart
 ```
-Теперь `staticfiles` и `mediafiles` будут проксироваться.
+Теперь `staticfiles` и `mediafiles` будут проксироваться.\
+Если у вас этого не происходит, то посмотрите лог ошибок nginx.
+```
+vim logs/nginx_errors.log
+```
