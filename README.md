@@ -6,5 +6,5 @@
 sudo apt-get update
 sudo apt-get install -y vim htop tree git curl 
 ```
-```vim``` Текстовый редактор
+```vim``` Текстовый редактор\n
 ```htop``` Утилита для для просмотра запущенных процессов, информации о них. 
