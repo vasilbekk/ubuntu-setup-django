@@ -7,7 +7,7 @@
 sudo apt-get update
 ```
 ```
-sudo apt-get install -y vim htop tree git curl zsh tmux nginx
+sudo apt-get install -y vim htop tree git curl zsh tmux nginx python3.8
 ```
 
 
@@ -21,6 +21,7 @@ sudo apt-get install -y vim htop tree git curl zsh tmux nginx
 `zsh`  | Супер командная оболочка UNIX, делает работу с консолью удобнее
 `tmux`  | Мультиплексор, несколько терминалов в одном окне, также есть встроенная альтернатива screen
 `nginx`  | Веб-сервер
+`python3.8`  | Python версии 3.8.x
 
 Скачиваем и устанавливаем [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) (Конфигурация ZSH). Делаем его оболочкой по умолчанию.
 ```
@@ -53,7 +54,7 @@ exit
 ssh-copy-id www@<адрес сервера>
 ssh www@<адрес сервера>
 ```
-###Открываем SSH-конфиг и изменяем следующие параметры:
+Открываем SSH-конфиг и изменяем следующие параметры:
 1. Разрешаем подключаться по SSH только пользователю `www`
 2. Запрещаем подключаться пользователю `root`
 3. Запрещаем подключаться по паролю
@@ -66,6 +67,8 @@ sudo vim /etc/ssh/sshd_config
 Перезапускаем SSH-клиент
 ```
 sudo service ssh restart
- ```
+```
 
-## Установка Python3.8
+
+
+
