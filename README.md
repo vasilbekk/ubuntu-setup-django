@@ -201,6 +201,7 @@ sudo vim /etc/nginx/sites-enabled/default
 	}
 	...
 ```
+Перезапускаем nginx-клиент
 ```
 sudo service nginx restart
 ```
