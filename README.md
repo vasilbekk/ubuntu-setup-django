@@ -73,7 +73,7 @@ vim ~/.zshrc
 . ~/.zshrc
 ```
 ## Клонируем Django-проект и настраиваем виртуальное окружение
-Создаем директорию, переходим в неё и клонируем репозиторий с проектом
+Клонируем репозиторий с проектом
 ```
 mkdir project && cd project
 git clone https://github.com/<username>/<repository_name>
@@ -98,23 +98,39 @@ pip3 freeze > requirements.txt
 ```
 vim /home/www/project/<repository_name>/gunicorn_config.py
 ```
-Вставляем параметры gunicorn'а
+Заполняем параметры Gunicorn-конфига
 ```
 command = '/home/www/project/venv/bin/gunicorn'
-pythonpath = '/home/www/project/<repository_name>/<settings_folder_name>'
+pythonpath = '/home/www/project/<repository_name>'
 bind = '127.0.0.1:8001'
-workers = <(2*Количество_ядер)+1>
+workers = <2*(Кол-во_ядер)-1>
 user = 'www'
 limit_request_fields = 32000
 limit_request_field_size = 0
-raw_env = 'DJANGO_SETTINGS_MODULE=<settings_folder_name>.settings'
+raw_env = 'DJANGO_SETTINGS_MODULE=<repository_name>.settings'
 ```
-Создаем bash-скрипт для запуска gunicron'а
+Создаём bash-скрипт для запуска Gunicorn'a
 ```
 mkdir bin
-vim /home/www/project/bin/start_gunicorn.sh
-    #!/bin/bash
+vim bin/start_gunicorn.sh
+	#!/bin/bash
 	source /home/www/project/venv/bin/activate
-	exec gunicorn  -c "/home/www/project/<repository_name>/gunicorn_config.py" <settings_folder_name>.wsgi
-```
+	exec gunicorn  -c "/home/www/project/<repository_name>/gunicorn_config.py" <repository_name>.wsgi
 
+```
+Проверяем работу Gunicorn'a, если нет ошибок, значит вы всё сделали правильно
+```
+bin/start_gunicorn.sh
+```
+Вот мое древо директорий папки `project`
+```
+├── bin
+│   └── start_gunicorn.sh
+├── requirements.txt
+├── venv  
+└── repository_name
+    ├── gunicorn_config.py
+    ├── manage.py
+    ├── repository_name
+    └── ...
+```
