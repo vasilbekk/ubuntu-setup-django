@@ -88,7 +88,7 @@ source venv/bin/activate
 ```
 pip3 install -r requirements.txt
 ```
-## Настраиваем Gunicorn
+## Настройка Gunicorn
 Устанавливаем `gunicorn` и сохраняем список установленных пакетов
 ```
 pip3 install gunicorn
@@ -134,3 +134,74 @@ bin/start_gunicorn.sh
     ├── repository_name
     └── ...
 ```
+## Настройка Nginx
+1. Создаем директорию log-файлов
+2. Удаляем и создаем чистый Nginx-конфиг
+```
+mkdir logs
+sudo rm /etc/nginx/sites-enabled/default
+sudo vim /etc/nginx/sites-enabled/default
+```
+Вставляем данный шаблон
+```
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+	error_log /home/www/project/logs/nginx_errors.log;
+        root /var/www/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+        	proxy_pass http://127.0.0.1:8001;
+        	proxy_set_header X-Forwarded-Host $server_name;
+        	proxy_set_header X-Real-IP $remote_addr;
+        	add_header P3P 'CP="ALL DSP COR PSAa PSDa OUR NOR ONL UNI COM NAV"';
+        	add_header Access-Control-Allow-Origin *;
+        }
+
+}
+```
+Перезапускаем Nginx-клиент
+```
+sudo service nginx restart
+```
+Если вы введете в браузере адрес сервера, то должны получить ошибку: "502 Bad Gateway", так как Gunicorn пока что отключён и Nginx'у некуда проксировать запросы.
+
+## Запуск
+Для запуска активируем созданный раннее bash-скрипт
+```
+bin/start_gunicorn.sh
+```
+Теперь при переходе на сайт всё должно работать, но без `staticfiles`. Их нужно подключать отдельно.
+Не забудьте изменить settings.py
+```
+vim <repository_name>/settings.py
+	...
+	DEBUG=False
+	...
+```
+
+## Подключение Django StaticFiles и MediaFiles
+Переходим в репозиторий и собираем `staticfiles` в одну директорию
+```
+python3 manage.py collectstatic
+```
+Теперь все статичные файлы хранятся в нашем репозитории в папке `static`. Открываем Nginx-конфиг и добавляем параметры проксирования запросов.
+```
+sudo vim /etc/nginx/sites-enabled/default
+	...
+	location /static/ {
+		root /home/www/project/<repository_name>;
+	}
+	location /media/ {
+		root /home/www/project/<repository_name>;
+	}
+	...
+```
+```
+sudo service nginx restart
+```
+Теперь `staticfiles` и `mediafiles` будут проксироваться.
