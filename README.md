@@ -67,3 +67,5 @@ sudo vim /etc/ssh/sshd_config
 ```
 sudo service ssh restart
  ```
+
+## Установка Python3.9
