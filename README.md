@@ -30,10 +30,10 @@ sudo chsh -s $(which zsh)
 Добавляем шорткаты для удобный и продуктивной работы с терминалом
 ```
 vim ~/.zshrc
-    cls='clear'
-    start_django='python3 manage.py runserver 0.0.0.0:8000'
-    sd='start_django'
-    activate_venv='source venv/bin/activate'
+    alias cls='clear'
+    alias start_django='python3 manage.py runserver 0.0.0.0:8000'
+    alias sd='start_django'
+    alias activate_venv='source venv/bin/activate'
 ```
 Перезапускаем ZSH-клиент
 ```
