@@ -46,5 +46,7 @@ sudo vim /etc/ssh/sshd_config
     AllowUsers www
     PermitRootLogin no
     PasswordAuthentication no
+```
+```
 sudo service ssh restart
  ```
