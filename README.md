@@ -33,7 +33,7 @@ vim ~/.zshrc
     cls='clear'
     start_django='python3 manage.py runserver 0.0.0.0:8000'
     sd='start_django'
-    avenv='source venv/bin/activate'
+    activate_venv='source venv/bin/activate'
 ```
 ## Добавляем нового пользователя. Настраиваем доступ к серверу.
 1. Создаём пользователя `www` --> Придумываем пароль --> Данные заполнять необязательно (Full Name, Room Number, ..., other).
