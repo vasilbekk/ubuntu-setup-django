@@ -6,7 +6,7 @@
 sudo apt-get update
 sudo apt-get install -y vim htop tree git curl 
 ```
-`vim`  <br \>Текстовый редактор\
+`vim`  <br />Текстовый редактор\
 `htop`  Просмотр запущенных процессов, информации о них\
 `tree`  Вывод каталогов в удобном формате\
 `git`   Работа с [GitHub](https://github.com/)\
