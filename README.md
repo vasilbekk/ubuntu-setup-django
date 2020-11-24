@@ -40,9 +40,11 @@ ssh www@<адрес сервера>
 1. Разрешаем подключаться по SSH только пользователю `www`
 2. Запрещаем подключаться пользователю `root`
 3. Запрещаем подключаться по паролю
+4. Перезапускаем SSH-клиент
 ```
 sudo vim /etc/ssh/sshd_config
     AllowUsers www
     PermitRootLogin no
     PasswordAuthentication no
+sudo service ssh restart
  ```
