@@ -7,7 +7,7 @@
 sudo apt-get update
 ```
 ```
-sudo apt-get install -y vim htop tree git curl zsh tmux nginx python3.8
+sudo apt-get install -y vim htop tree git curl zsh tmux nginx python3.8 python3-pip python3-venv
 ```
 
 
@@ -22,6 +22,8 @@ sudo apt-get install -y vim htop tree git curl zsh tmux nginx python3.8
 `tmux`  | Мультиплексор, несколько терминалов в одном окне, также есть встроенная альтернатива screen
 `nginx`  | Веб-сервер
 `python3.8`  | Python версии 3.8.x
+`python3-pip`  | Менеджер пакетов для Python
+`python3-venv`  | Виртуальное окружение Python
 
 ## Добавляем нового пользователя. Настраиваем доступ к серверу.
 1. Создаём пользователя `www` --> Придумываем пароль --> Данные заполнять необязательно (Full Name, Room Number, ..., other).
@@ -69,6 +71,27 @@ vim ~/.zshrc
 Перезапускаем ZSH-клиент
 ```
 . ~/.zshrc
+```
+## Настраиваем Django-проект
+Создаем директорию, переходим в неё и клонируем репозиторий с проектом
+```
+mkdir code && cd code
+git clone https://github.com/<username>/<repository_name>
+```
+Устанавливаем `virtualenv`, создаем виртуальное окружение и активируем его
+```
+pip3 install virtualenv
+python3 -m venv venv
+source venv/bin/activate
+```
+Устанавливаем необходимые пакеты (в моем случае все пакеты хранятся в requirements.txt)
+```
+pip3 install -r requirements.txt
+```
+Устанавливаем `gunicron` и сохраняем список установленных пакетов
+```
+pip3 install gunicorn
+pip3 freeze > requirements.txt
 ```
 
 
