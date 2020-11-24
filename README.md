@@ -6,7 +6,7 @@
 sudo apt-get update
 ```
 ```
-sudo apt-get install -y vim htop tree git curl 
+sudo apt-get install -y vim htop tree git curl zsh tmux nginx
 ```
 
 
@@ -17,5 +17,10 @@ sudo apt-get install -y vim htop tree git curl
 `tree`  | Вывод каталогов в удобном формате
 `git`  | Работа с [GitHub](https://github.com/)
 `curl`  | Отправка Http-запросов
+`zsh`  | Супер командная оболочка UNIX, делает работу с консолью удобнее
+`tmux`  | Мультиплексор, несколько терминалов в одном окне, также есть встроенная альтернатива screen
+`nginx`  | Веб-сервер
+
+
 
 
