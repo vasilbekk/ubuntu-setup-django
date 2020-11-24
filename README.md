@@ -22,10 +22,18 @@ sudo apt-get install -y vim htop tree git curl zsh tmux nginx
 `tmux`  | Мультиплексор, несколько терминалов в одном окне, также есть встроенная альтернатива screen
 `nginx`  | Веб-сервер
 
-Скачиваем и устанавливаем [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)(Конфигурация ZSH). Делаем его оболочкой по умолчанию.
+Скачиваем и устанавливаем [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) (Конфигурация ZSH). Делаем его оболочкой по умолчанию.
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo chsh -s $(which zsh)
+```
+Добавляем шорткаты для удобный и продуктивной работы с терминалом
+```
+vim ~/.zshrc
+    cls='clear'
+    start_django='python3 manage.py runserver 0.0.0.0:8000'
+    sd='start_django'
+    avenv='source venv/bin/activate'
 ```
 ## Добавляем нового пользователя. Настраиваем доступ к серверу.
 1. Создаём пользователя `www` --> Придумываем пароль --> Данные заполнять необязательно (Full Name, Room Number, ..., other).
