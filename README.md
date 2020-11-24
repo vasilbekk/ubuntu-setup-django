@@ -22,6 +22,11 @@ sudo apt-get install -y vim htop tree git curl zsh tmux nginx
 `tmux`  | Мультиплексор, несколько терминалов в одном окне, также есть встроенная альтернатива screen
 `nginx`  | Веб-сервер
 
+Скачиваем и устанавливаем [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh). Делаем его оболочкой по умолчанию.
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sudo chsh -s $(which zsh)
+```
 ## Добавляем нового пользователя. Настраиваем доступ к серверу.
 1. Создаём пользователя `www` --> Придумываем пароль --> Данные заполнять необязательно (Full Name, Room Number, ..., other).
 2. Добавляем пользователя `www` в группу `sudo`, чтобы получить права администратора.
@@ -40,13 +45,13 @@ ssh www@<адрес сервера>
 1. Разрешаем подключаться по SSH только пользователю `www`
 2. Запрещаем подключаться пользователю `root`
 3. Запрещаем подключаться по паролю
-4. Перезапускаем SSH-клиент
 ```
 sudo vim /etc/ssh/sshd_config
     AllowUsers www
     PermitRootLogin no
     PasswordAuthentication no
 ```
+Перезапускаем SSH-клиент
 ```
 sudo service ssh restart
  ```
