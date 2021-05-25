@@ -148,6 +148,7 @@ server {
         listen 80 default_server;
         listen [::]:80 default_server;
 	error_log /home/www/project/logs/nginx_errors.log;
+	access_log /home/www/project/logs/nginx_access.log;
         root /var/www/html;
 
         index index.html index.htm index.nginx-debian.html;
