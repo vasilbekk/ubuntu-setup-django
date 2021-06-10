@@ -150,6 +150,7 @@ server {
 	error_log /home/www/project/logs/nginx_errors.log;
 	access_log /home/www/project/logs/nginx_access.log;
         root /var/www/html;
+	client_max_body_size 100M;
 	
 	client_max_body_size 100M;
 
