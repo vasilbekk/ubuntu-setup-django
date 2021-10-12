@@ -7,7 +7,7 @@
 sudo apt-get update
 ```
 ```
-sudo apt-get install -y vim htop tree git curl zsh tmux nginx python3.8 python3-pip python3-venv
+sudo apt-get install -y vim htop tree git curl zsh tmux nginx python3.10 python3-pip python3-venv
 ```
 
 
