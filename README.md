@@ -60,7 +60,7 @@ sudo service ssh restart
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo chsh -s $(which zsh)
 ```
-Добавляем шорткаты для удобный и продуктивной работы с терминалом
+Добавляем шорткаты для удобный работы с терминалом
 ```
 vim ~/.zshrc
     alias cls='clear'
